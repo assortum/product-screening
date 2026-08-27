@@ -27,13 +27,12 @@ async function init() {
   state.meta = meta;
   state.attributes = attributes;
 
-  const [catalogDict, catalogParts, summary, sources] = await Promise.all([
-    fetchJson(manifest.catalogDictionaryFile),
-    Promise.all((manifest.catalogFiles || []).map(fetchJson)),
+  const [catalog, summary, sources] = await Promise.all([
+    loadCompressedCatalog(manifest.catalogFragments || []),
     fetchJson(manifest.summaryFile),
     fetchJson(manifest.sourcesFile)
   ]);
-  state.catalog = expandCatalog({ ...catalogDict, r: catalogParts.flat() });
+  state.catalog = expandCatalog(catalog);
   state.summary = summary || {};
   state.sources = sources?.sources || {};
 
@@ -43,6 +42,20 @@ async function init() {
   restoreFromUrl();
   applyFilters();
   openProductFromUrl();
+}
+
+async function loadCompressedCatalog(fragmentPaths) {
+  if (!fragmentPaths.length) throw new Error('Каталог не указан в manifest.json');
+  const parts = await Promise.all(fragmentPaths.map(async path => {
+    const r = await fetch(path, { cache: 'no-store' });
+    if (!r.ok) throw new Error(`${path}: HTTP ${r.status}`);
+    return r.text();
+  }));
+  const binary = Uint8Array.from(atob(parts.join('')), ch => ch.charCodeAt(0));
+  if (typeof DecompressionStream === 'undefined') throw new Error('Браузер не поддерживает распаковку каталога gzip');
+  const stream = new Blob([binary]).stream().pipeThrough(new DecompressionStream('gzip'));
+  const text = await new Response(stream).text();
+  return JSON.parse(text);
 }
 
 function expandCatalog(payload) {
@@ -57,8 +70,13 @@ function expandCatalog(payload) {
 
 function getSummary(id) {
   return state.summary[String(id)] || {
-    result: 'pending', markingCurrent: 'unknown', markingFuture: 'unknown', experiment: 'unknown',
-    documentFlags: [], tnvedCodes: [], lastChecked: null
+    result: 'pending',
+    markingCurrent: 'unknown',
+    markingFuture: 'unknown',
+    experiment: 'unknown',
+    documentFlags: [],
+    tnvedCodes: [],
+    lastChecked: null
   };
 }
 
