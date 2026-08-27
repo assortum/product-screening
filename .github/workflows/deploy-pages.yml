@@ -23,8 +23,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build compliance data
+      - name: Build clothing compliance data
         run: python3 scripts/build_compliance.py
+      - name: Merge footwear compliance data
+        run: python3 scripts/build_footwear.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
