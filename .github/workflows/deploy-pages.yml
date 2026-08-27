@@ -27,7 +27,7 @@ jobs:
         run: python3 scripts/validate_regulatory_data.py
       - name: Validate builders and browser JavaScript
         run: |
-          python3 -m py_compile scripts/build_batch_v2.py scripts/build_furniture.py
+          python3 -m py_compile scripts/build_batch_v2.py scripts/build_furniture.py scripts/build_furniture_all.py
           node --check assets/app-core.js
           node --check assets/app-detail.js
           node --check assets/terminology.js
@@ -61,7 +61,7 @@ jobs:
       - name: Merge v2 compliance batches
         run: python3 scripts/build_batch_v2.py data-src/batch-v2-*.json
       - name: Merge furniture compliance data
-        run: python3 scripts/build_furniture.py
+        run: python3 scripts/build_furniture_all.py
       - name: Build regulatory impact queue
         run: python3 scripts/build_regulatory_impact.py
       - name: Configure Pages
