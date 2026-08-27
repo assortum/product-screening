@@ -6,7 +6,8 @@ INDEX = furniture.ROOT / 'data-src' / 'furniture-index.json'
 
 
 def load_verified_furniture_rows():
-    out = json.loads(INDEX.read_text(encoding='utf-8'))
+    obj = json.loads(INDEX.read_text(encoding='utf-8'))
+    out = obj.get('items', [])
     out.sort(key=lambda x: int(x['id']))
     if len(out) != 227:
         raise SystemExit(f'Furniture index mismatch: expected 227, got {len(out)}')
