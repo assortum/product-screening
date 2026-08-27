@@ -32,6 +32,27 @@ def merge_sources(batch):
     store.setdefault('sources',{}).update(incoming)
     write(DATA/'sources.json',store,pretty=True)
 
+def resolved_variants(batch, product):
+    profiles=batch.get('profiles') or {}
+    out=[]
+    for raw in product.get('variants',[]):
+        base=profiles.get(raw.get('profile'),{}) if raw.get('profile') else {}
+        item={}
+        for k,v in base.items():
+            if k=='sourceIds':
+                continue
+            item[k]=v
+        for k,v in raw.items():
+            if k in ('profile','sourceIds'):
+                continue
+            item[k]=v
+        src=[]
+        for sid in list(base.get('sourceIds',[]))+list(raw.get('sourceIds',[])):
+            if sid not in src: src.append(sid)
+        item['sourceIds']=src
+        out.append(item)
+    return out
+
 def union_source_ids(product):
     out=[]
     for sid in product.get('sourceIds',[]):
@@ -81,6 +102,8 @@ def main():
         merge_sources(batch)
         checked=batch.get('checkedAt','2026-08-27'); last_checked=checked
         for p in batch.get('products',[]):
+            p=dict(p)
+            p['variants']=resolved_variants(batch,p)
             pid=int(p['id']); total_added+=1; sh=shard(pid)
             detail_files.setdefault(sh,load(DATA/'compliance/details'/sh,{}))
             rule_files.setdefault(sh,load(DATA/'rules/products'/sh,{}))
