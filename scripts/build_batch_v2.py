@@ -53,6 +53,18 @@ def resolved_variants(batch, product):
         out.append(item)
     return out
 
+def derived_result(product):
+    variants=product.get('variants',[])
+    if not variants:
+        return product.get('result','yellow')
+    results={v.get('result', product.get('result','yellow')) for v in variants}
+    results.discard(None)
+    if results=={'green'}:
+        return 'green'
+    if results=={'red'}:
+        return 'red'
+    return 'yellow'
+
 def union_source_ids(product):
     out=[]
     for sid in product.get('sourceIds',[]):
@@ -104,6 +116,7 @@ def main():
         for p in batch.get('products',[]):
             p=dict(p)
             p['variants']=resolved_variants(batch,p)
+            p['result']=derived_result(p)
             pid=int(p['id']); total_added+=1; sh=shard(pid)
             detail_files.setdefault(sh,load(DATA/'compliance/details'/sh,{}))
             rule_files.setdefault(sh,load(DATA/'rules/products'/sh,{}))
@@ -119,7 +132,7 @@ def main():
             for i,v in enumerate(variants,1):
                 code=str(v.get('code','')).strip()
                 if not code: continue
-                scenarios.append({'label':v.get('when') or f'Вариант {i}','note':v.get('note',''),'sourceIds':v.get('sourceIds',[]),'output':{'tnvedCandidates':[{'code':code}],'documents':v.get('documents') or {'status':'check','items':[]},'marking':v.get('marking') or {},'result':v.get('result',p.get('result','yellow')),'sourceIds':v.get('sourceIds',[])}})
+                scenarios.append({'label':v.get('when') or f'Вариант {i}','note':v.get('note',''),'sourceIds':v.get('sourceIds',[]),'output':{'tnvedCandidates':[{'code':code}],'documents':v.get('documents') or {'status':'check','items':[]},'marking':v.get('marking') or {},'result':v.get('result',p['result']),'sourceIds':v.get('sourceIds',[])}})
             rule_files[sh][str(pid)]={'questionIds':[],'scenarios':scenarios}
             all_codes=[]
             for v in variants:
@@ -134,7 +147,7 @@ def main():
                 if d.get('status')=='none' and 'none' not in flags: flags.append('none')
                 if d.get('refusalLetter') and 'refusal' not in flags and 'Нет' not in str(d.get('refusalLetter')): flags.append('refusal')
             if not flags: flags=['unknown']
-            summary[str(pid)]={'result':p.get('result','yellow'),'markingCurrent':marks['current'].get('status','unknown'),'markingFuture':marks['future'].get('status','unknown'),'experiment':marks['experiment'].get('status','unknown'),'documentFlags':flags,'tnvedCodes':all_codes,'lastChecked':checked}
+            summary[str(pid)]={'result':p['result'],'markingCurrent':marks['current'].get('status','unknown'),'markingFuture':marks['future'].get('status','unknown'),'experiment':marks['experiment'].get('status','unknown'),'documentFlags':flags,'tnvedCodes':all_codes,'lastChecked':checked}
     write(DATA/'compliance-summary.json',summary)
     for n,o in detail_files.items(): write(DATA/'compliance/details'/n,o)
     for n,o in rule_files.items(): write(DATA/'rules/products'/n,o)
