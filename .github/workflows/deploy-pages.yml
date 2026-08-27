@@ -26,10 +26,14 @@ jobs:
       - name: Build clothing compliance data
         run: |
           mv data-src/shoes-01.json /tmp/shoes-01.json
+          mv data-src/children-01.json /tmp/children-01.json
           python3 scripts/build_compliance.py
           mv /tmp/shoes-01.json data-src/shoes-01.json
+          mv /tmp/children-01.json data-src/children-01.json
       - name: Merge footwear compliance data
         run: python3 scripts/build_footwear.py
+      - name: Merge child products compliance data
+        run: python3 scripts/build_children.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
