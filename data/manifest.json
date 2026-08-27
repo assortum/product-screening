@@ -1,10 +1,16 @@
 {
-  "version": 3,
+  "version": 4,
   "shardSize": 500,
   "detailPathTemplate": "data/compliance/details/{start}-{end}.json",
   "rulePathTemplate": "data/rules/products/{start}-{end}.json",
   "summaryFile": "data/compliance-summary.json",
   "sourcesFile": "data/sources.json",
+  "regulationsFile": "data/regulations.json",
+  "regulatoryUpdatesFile": "data/regulatory-updates.json",
+  "tnvedAssistant": {
+    "label": "ТН ВЭД Маркетплейсы",
+    "url": "https://chatgpt.com/g/g-69f2fdccdb3c8191ad9b7e2daf4c9f20-tn-ved-marketpleisy"
+  },
   "catalogFragments": [
     "data/catalog-gz/part-01.txt",
     "data/catalog-gz/part-02a.txt",
