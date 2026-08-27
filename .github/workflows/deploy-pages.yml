@@ -24,7 +24,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Build clothing compliance data
-        run: python3 scripts/build_compliance.py
+        run: |
+          mv data-src/shoes-01.json /tmp/shoes-01.json
+          python3 scripts/build_compliance.py
+          mv /tmp/shoes-01.json data-src/shoes-01.json
       - name: Merge footwear compliance data
         run: python3 scripts/build_footwear.py
       - name: Configure Pages
