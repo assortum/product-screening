@@ -1,5 +1,5 @@
 {
-  "version": 2,
+  "version": 3,
   "sources": {
     "cz-legprom-scope": {"title":"Какие товары легкой промышленности подлежат обязательной маркировке?","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/knowledge/tovarnye-gruppy/legkaya-promishlennost/kakie-tovary-podlezhat-obyazatelnoy-markirovke-legprom"},
     "cz-legprom-2024": {"title":"Расширение перечня товаров легкой промышленности — вторая волна","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/community/shoes-and-clothes/rasshirenie-perechnya-tovarov-legkoy-promyshlennosti"},
@@ -12,6 +12,11 @@
     "tr-ts-019": {"title":"ТР ТС 019/2011 «О безопасности средств индивидуальной защиты»","authority":"Евразийская экономическая комиссия","url":"https://eec.eaeunion.org/upload/medialibrary/39d/TP-TS-SIZ.pdf"},
     "cz-natural-fur": {"title":"Какие меховые изделия подлежат обязательной маркировке?","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/knowledge/tovarnye-gruppy/meha/kakie-tovary-podlezhat-obyazatelnoy-markirovke-meha"},
     "rzn-med-registration": {"title":"Государственная регистрация медицинских изделий","authority":"Росздравнадзор","url":"https://www.roszdravnadzor.gov.ru/medproducts/registration"},
-    "pp-rf-1684-2024": {"title":"Постановление Правительства РФ от 30.11.2024 № 1684","authority":"Официальное опубликование правовых актов","url":"https://publication.pravo.gov.ru/document/0001202411300042"}
+    "pp-rf-1684-2024": {"title":"Постановление Правительства РФ от 30.11.2024 № 1684","authority":"Официальное опубликование правовых актов","url":"https://publication.pravo.gov.ru/document/0001202411300042"},
+    "cz-footwear-scope": {"title":"Какие обувные товары подлежат обязательной маркировке?","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/knowledge/tovarnye-gruppy/obuv/kakie-tovary-podlezhat-obyazatelnoy-markirovke-obuv"},
+    "cz-footwear-exceptions": {"title":"Какие обувные товары НЕ подлежат маркировке?","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/knowledge/tovarnye-gruppy/obuv/kakie-tovary-ne-podlezhat-markirovke-obuv"},
+    "pp-rf-860-2019": {"title":"Постановление Правительства РФ от 05.07.2019 № 860","authority":"Официальное опубликование правовых актов","url":"https://publication.pravo.gov.ru/document/view/0001201907080024"},
+    "eec-tnved-95": {"title":"Пояснения к группе 95 ТН ВЭД ЕАЭС","authority":"Евразийская экономическая комиссия","url":"https://eec.eaeunion.org/upload/medialibrary/917/gr-95-.pdf"},
+    "pp-rf-2425": {"title":"Постановление Правительства РФ от 23.12.2021 № 2425","authority":"Официальное опубликование правовых актов","url":"https://publication.pravo.gov.ru/Document/View/0001202112300200"}
   }
 }
