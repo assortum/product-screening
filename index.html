@@ -7,6 +7,7 @@
   <title>Product Screening</title>
   <meta name="description" content="Поисковая база по Честному знаку, ТН ВЭД и обязательным документам для товарных категорий Ozon.">
   <link rel="stylesheet" href="assets/styles.css">
+  <link rel="stylesheet" href="assets/simplified.css">
 </head>
 <body>
   <header class="topbar">
@@ -22,8 +23,8 @@
   <main class="shell">
     <section class="hero">
       <div class="eyebrow">База первичного compliance-screening</div>
-      <h1>Найдите тип товара и проверьте регуляторный вход</h1>
-      <p class="hero-copy">Поиск по категории Ozon, типу товара и ТН ВЭД. Цвет показывает сложность регуляторного входа, а не решение о том, продавать товар или исключать его. Для спорных товаров карточка показывает, какие характеристики необходимо уточнить и как они меняют сценарий классификации.</p>
+      <h1>Найдите тип товара и оцените регуляторный вход</h1>
+      <p class="hero-copy">Карточка показывает реалистичные варианты ТН ВЭД для типа товара и риски по каждому варианту: Честный знак, документы, отказное письмо и нормативные источники. Цвет показывает сложность регуляторного входа, а не решение о том, продавать товар или нет.</p>
 
       <div class="search-panel">
         <label class="searchbox">
@@ -39,7 +40,7 @@
       <div class="filter-group result-pills">
         <button class="filter-pill active" data-result="all" type="button">Все</button>
         <button class="filter-pill green" data-result="green" type="button">Простой вход</button>
-        <button class="filter-pill yellow" data-result="yellow" type="button">Требует уточнения</button>
+        <button class="filter-pill yellow" data-result="yellow" type="button">Внимание</button>
         <button class="filter-pill red" data-result="red" type="button">Сложный вход</button>
         <button class="filter-pill" data-result="pending" type="button">Не проверено</button>
       </div>
@@ -54,7 +55,7 @@
       </div>
     </section>
 
-    <section class="results-head"><div><strong id="resultCount">0</strong> найдено</div><div class="legend"><span class="dot green"></span> низкая регуляторная нагрузка <span class="dot yellow"></span> нужны уточнения <span class="dot red"></span> обязательные требования / сложный вход</div></section>
+    <section class="results-head"><div><strong id="resultCount">0</strong> найдено</div><div class="legend"><span class="dot green"></span> низкая регуляторная нагрузка <span class="dot yellow"></span> есть риск / развилка <span class="dot red"></span> существенные обязательные требования</div></section>
     <section id="results" class="results" aria-live="polite"></section>
     <nav id="pager" class="pager" aria-label="Страницы результатов"></nav>
   </main>
