@@ -45,66 +45,24 @@
       </div>
 
       <div class="filter-grid">
-        <label>
-          <span>Основная категория</span>
-          <select id="mainCategoryFilter"><option value="">Все</option></select>
-        </label>
-        <label>
-          <span>Категория</span>
-          <select id="categoryFilter"><option value="">Все</option></select>
-        </label>
-        <label>
-          <span>Честный знак</span>
-          <select id="markingFilter">
-            <option value="">Любой статус</option>
-            <option value="current">Обязателен сейчас</option>
-            <option value="future">Утверждён на будущее</option>
-            <option value="experiment">Эксперимент</option>
-            <option value="none">Не обнаружен</option>
-            <option value="unknown">Не проверено</option>
-          </select>
-        </label>
-        <label>
-          <span>Документы</span>
-          <select id="documentFilter">
-            <option value="">Любой статус</option>
-            <option value="declaration">Декларация</option>
-            <option value="certificate">Сертификат</option>
-            <option value="sgr">СГР</option>
-            <option value="refusal">Отказное письмо</option>
-            <option value="none">Обязательных нет</option>
-            <option value="unknown">Не проверено</option>
-          </select>
-        </label>
-        <label>
-          <span>Сортировка</span>
-          <select id="sortSelect">
-            <option value="type">По типу товара</option>
-            <option value="category">По категории</option>
-            <option value="result">По статусу</option>
-          </select>
-        </label>
+        <label><span>Основная категория</span><select id="mainCategoryFilter"><option value="">Все</option></select></label>
+        <label><span>Категория</span><select id="categoryFilter"><option value="">Все</option></select></label>
+        <label><span>Честный знак</span><select id="markingFilter"><option value="">Любой статус</option><option value="current">Обязателен сейчас</option><option value="future">Утверждён на будущее</option><option value="experiment">Эксперимент</option><option value="none">Не обнаружен</option><option value="unknown">Не проверено</option></select></label>
+        <label><span>Документы</span><select id="documentFilter"><option value="">Любой статус</option><option value="declaration">Декларация</option><option value="certificate">Сертификат</option><option value="sgr">СГР</option><option value="refusal">Отказное письмо</option><option value="none">Обязательных нет</option><option value="unknown">Не проверено</option></select></label>
+        <label><span>Сортировка</span><select id="sortSelect"><option value="type">По типу товара</option><option value="category">По категории</option><option value="result">По статусу</option></select></label>
         <div class="reset-wrap"><button id="resetFilters" class="secondary-btn" type="button">Сбросить фильтры</button></div>
       </div>
     </section>
 
-    <section class="results-head">
-      <div><strong id="resultCount">0</strong> найдено</div>
-      <div class="legend"><span class="dot green"></span> простой вход <span class="dot yellow"></span> уточнение <span class="dot red"></span> исключение</div>
-    </section>
-
+    <section class="results-head"><div><strong id="resultCount">0</strong> найдено</div><div class="legend"><span class="dot green"></span> простой вход <span class="dot yellow"></span> уточнение <span class="dot red"></span> исключение</div></section>
     <section id="results" class="results" aria-live="polite"></section>
     <nav id="pager" class="pager" aria-label="Страницы результатов"></nav>
   </main>
 
-  <dialog id="productDialog" class="product-dialog">
-    <div class="dialog-shell">
-      <button id="closeDialog" class="dialog-close" type="button" aria-label="Закрыть">×</button>
-      <div id="productDetails"></div>
-    </div>
-  </dialog>
-
+  <dialog id="productDialog" class="product-dialog"><div class="dialog-shell"><button id="closeDialog" class="dialog-close" type="button" aria-label="Закрыть">×</button><div id="productDetails"></div></div></dialog>
   <template id="loadingTemplate"><div class="empty">Загрузка данных…</div></template>
-  <script src="assets/app.js" defer></script>
+  <script src="assets/app-core.js" defer></script>
+  <script src="assets/app-detail.js" defer></script>
+  <script src="assets/app-ui.js" defer></script>
 </body>
 </html>
