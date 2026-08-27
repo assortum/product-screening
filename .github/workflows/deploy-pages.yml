@@ -25,15 +25,17 @@ jobs:
         uses: actions/checkout@v4
       - name: Build clothing compliance data
         run: |
-          mv data-src/shoes-01.json /tmp/shoes-01.json
-          mv data-src/children-01.json /tmp/children-01.json
+          mkdir -p /tmp/screening-inputs
+          mv data-src/shoes-01.json /tmp/screening-inputs/
+          mv data-src/children-*.json /tmp/screening-inputs/
           python3 scripts/build_compliance.py
-          mv /tmp/shoes-01.json data-src/shoes-01.json
-          mv /tmp/children-01.json data-src/children-01.json
+          mv /tmp/screening-inputs/* data-src/
       - name: Merge footwear compliance data
         run: python3 scripts/build_footwear.py
-      - name: Merge child products compliance data
+      - name: Merge child products compliance data 01
         run: python3 scripts/build_children.py
+      - name: Merge child products compliance data 02
+        run: python3 scripts/build_children_02.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
