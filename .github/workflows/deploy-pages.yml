@@ -31,6 +31,7 @@ jobs:
           mv data-src/stationery-01.json /tmp/screening-inputs/
           mv data-src/pets-01.json /tmp/screening-inputs/
           mv data-src/home-garden-01.json /tmp/screening-inputs/
+          mv data-src/books-01.json /tmp/screening-inputs/
           python3 scripts/build_compliance.py
           mv /tmp/screening-inputs/* data-src/
       - name: Merge footwear compliance data
@@ -45,6 +46,8 @@ jobs:
         run: python3 scripts/build_pets.py
       - name: Merge home and garden compliance data
         run: python3 scripts/build_home_garden.py
+      - name: Merge books compliance data
+        run: python3 scripts/build_books.py
       - name: Configure Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
