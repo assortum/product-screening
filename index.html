@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="dark light">
+  <title>Product Screening</title>
+  <meta name="description" content="Поисковая база по Честному знаку, ТН ВЭД и обязательным документам для товарных категорий Ozon.">
+  <link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-inner">
+      <div>
+        <div class="brand">PRODUCT SCREENING</div>
+        <div class="subbrand">Честный знак · ТН ВЭД · документы</div>
+      </div>
+      <div class="catalog-meta" id="catalogMeta">Загрузка базы…</div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">База первичного compliance-screening</div>
+      <h1>Найдите тип товара и проверьте регуляторный вход</h1>
+      <p class="hero-copy">Поиск по категории Ozon, типу товара и ТН ВЭД. Для спорных товаров карточка показывает, какие характеристики необходимо уточнить и как они меняют сценарий классификации.</p>
+
+      <div class="search-panel">
+        <label class="searchbox">
+          <span class="sr-only">Поиск</span>
+          <input id="searchInput" type="search" autocomplete="off" placeholder="Например: щётка, органайзер, 3926…">
+          <button id="clearSearch" class="clear-btn" type="button" aria-label="Очистить поиск">×</button>
+        </label>
+        <div class="search-help">Поиск работает по основной категории, категории, типу товара и загруженным кодам ТН ВЭД.</div>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-label="Фильтры">
+      <div class="filter-group result-pills">
+        <button class="filter-pill active" data-result="all" type="button">Все</button>
+        <button class="filter-pill green" data-result="green" type="button">Подходит</button>
+        <button class="filter-pill yellow" data-result="yellow" type="button">Проверить</button>
+        <button class="filter-pill red" data-result="red" type="button">Исключить</button>
+        <button class="filter-pill" data-result="pending" type="button">Не проверено</button>
+      </div>
+
+      <div class="filter-grid">
+        <label>
+          <span>Основная категория</span>
+          <select id="mainCategoryFilter"><option value="">Все</option></select>
+        </label>
+        <label>
+          <span>Категория</span>
+          <select id="categoryFilter"><option value="">Все</option></select>
+        </label>
+        <label>
+          <span>Честный знак</span>
+          <select id="markingFilter">
+            <option value="">Любой статус</option>
+            <option value="current">Обязателен сейчас</option>
+            <option value="future">Утверждён на будущее</option>
+            <option value="experiment">Эксперимент</option>
+            <option value="none">Не обнаружен</option>
+            <option value="unknown">Не проверено</option>
+          </select>
+        </label>
+        <label>
+          <span>Документы</span>
+          <select id="documentFilter">
+            <option value="">Любой статус</option>
+            <option value="declaration">Декларация</option>
+            <option value="certificate">Сертификат</option>
+            <option value="sgr">СГР</option>
+            <option value="refusal">Отказное письмо</option>
+            <option value="none">Обязательных нет</option>
+            <option value="unknown">Не проверено</option>
+          </select>
+        </label>
+        <label>
+          <span>Сортировка</span>
+          <select id="sortSelect">
+            <option value="type">По типу товара</option>
+            <option value="category">По категории</option>
+            <option value="result">По статусу</option>
+          </select>
+        </label>
+        <div class="reset-wrap"><button id="resetFilters" class="secondary-btn" type="button">Сбросить фильтры</button></div>
+      </div>
+    </section>
+
+    <section class="results-head">
+      <div><strong id="resultCount">0</strong> найдено</div>
+      <div class="legend"><span class="dot green"></span> простой вход <span class="dot yellow"></span> уточнение <span class="dot red"></span> исключение</div>
+    </section>
+
+    <section id="results" class="results" aria-live="polite"></section>
+    <nav id="pager" class="pager" aria-label="Страницы результатов"></nav>
+  </main>
+
+  <dialog id="productDialog" class="product-dialog">
+    <div class="dialog-shell">
+      <button id="closeDialog" class="dialog-close" type="button" aria-label="Закрыть">×</button>
+      <div id="productDetails"></div>
+    </div>
+  </dialog>
+
+  <template id="loadingTemplate"><div class="empty">Загрузка данных…</div></template>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
