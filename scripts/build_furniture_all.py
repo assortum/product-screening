@@ -2,28 +2,21 @@
 import json
 import build_furniture as furniture
 
-DATA = furniture.DATA
+INDEX = furniture.ROOT / 'data-src' / 'furniture-index.json'
 
 
-def load_all_furniture_rows():
-    d = json.loads((DATA / 'catalog-dict.json').read_text(encoding='utf-8'))
-    cats = d['c']
-    out = []
-    for path in sorted((DATA / 'catalog').glob('part-*.json')):
-        rows = json.loads(path.read_text(encoding='utf-8'))
-        for pid, cat_idx, name in rows:
-            if furniture.START_ID <= int(pid) <= furniture.END_ID:
-                out.append({'id': int(pid), 'name': name, 'category': cats[cat_idx][1]})
-    out.sort(key=lambda x: x['id'])
+def load_verified_furniture_rows():
+    out = json.loads(INDEX.read_text(encoding='utf-8'))
+    out.sort(key=lambda x: int(x['id']))
     if len(out) != 227:
-        raise SystemExit(f'Furniture catalog mismatch: expected 227, got {len(out)}')
-    if out[0]['id'] != 4042 or out[-1]['id'] != 4268:
+        raise SystemExit(f'Furniture index mismatch: expected 227, got {len(out)}')
+    if int(out[0]['id']) != 4042 or int(out[-1]['id']) != 4268:
         raise SystemExit(f"Furniture ID range mismatch: {out[0]['id']}..{out[-1]['id']}")
-    if len({x['id'] for x in out}) != 227:
+    if len({int(x['id']) for x in out}) != 227:
         raise SystemExit('Furniture duplicate IDs detected')
-    return out
+    return [{'id': int(x['id']), 'name': x['name'], 'category': x['category']} for x in out]
 
 
 if __name__ == '__main__':
-    furniture.load_catalog_rows = load_all_furniture_rows
+    furniture.load_catalog_rows = load_verified_furniture_rows
     furniture.main()
