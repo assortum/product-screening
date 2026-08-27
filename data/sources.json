@@ -1,4 +1,17 @@
 {
-  "version": 1,
-  "sources": {}
+  "version": 2,
+  "sources": {
+    "cz-legprom-scope": {"title":"Какие товары легкой промышленности подлежат обязательной маркировке?","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/knowledge/tovarnye-gruppy/legkaya-promishlennost/kakie-tovary-podlezhat-obyazatelnoy-markirovke-legprom"},
+    "cz-legprom-2024": {"title":"Расширение перечня товаров легкой промышленности — вторая волна","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/community/shoes-and-clothes/rasshirenie-perechnya-tovarov-legkoy-promyshlennosti"},
+    "cz-legprom-2025": {"title":"Расширение перечня товаров легкой промышленности с 1 марта 2025","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/community/shoes-and-clothes/rasshirenie-perechnya-tovarov-legkoy-promyshlennosti-mart-2025"},
+    "cz-legprom-2026": {"title":"Расширение перечня товаров легкой промышленности с 1 марта 2026","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/community/shoes-and-clothes/rasshirenie-perechnya-tovarov-legkoy-promyshlennosti-s-1-marta-2026"},
+    "pp-rf-883-2024": {"title":"Постановление Правительства РФ от 29.06.2024 № 883","authority":"Официальное опубликование правовых актов","url":"https://publication.pravo.gov.ru/document/0001202406290017"},
+    "pp-rf-2129-2025": {"title":"Постановление Правительства РФ от 25.12.2025 № 2129","authority":"Официальное опубликование правовых актов","url":"https://publication.pravo.gov.ru/document/0001202512270016"},
+    "tr-ts-017": {"title":"ТР ТС 017/2011 «О безопасности продукции легкой промышленности»","authority":"Евразийская экономическая комиссия","url":"https://eec.eaeunion.org/upload/medialibrary/e4f/TR-TS-ProduktLegProm.pdf"},
+    "tr-ts-007": {"title":"ТР ТС 007/2011 «О безопасности продукции, предназначенной для детей и подростков»","authority":"Евразийская экономическая комиссия","url":"https://eec.eaeunion.org/upload/medialibrary/0f8/P_797_1.pdf"},
+    "tr-ts-019": {"title":"ТР ТС 019/2011 «О безопасности средств индивидуальной защиты»","authority":"Евразийская экономическая комиссия","url":"https://eec.eaeunion.org/upload/medialibrary/39d/TP-TS-SIZ.pdf"},
+    "cz-natural-fur": {"title":"Какие меховые изделия подлежат обязательной маркировке?","authority":"Честный знак / ЦРПТ","url":"https://markirovka.ru/knowledge/tovarnye-gruppy/meha/kakie-tovary-podlezhat-obyazatelnoy-markirovke-meha"},
+    "rzn-med-registration": {"title":"Государственная регистрация медицинских изделий","authority":"Росздравнадзор","url":"https://www.roszdravnadzor.gov.ru/medproducts/registration"},
+    "pp-rf-1684-2024": {"title":"Постановление Правительства РФ от 30.11.2024 № 1684","authority":"Официальное опубликование правовых актов","url":"https://publication.pravo.gov.ru/document/0001202411300042"}
+  }
 }
