@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 2,
+  "generatedFrom": "Таблица_категорий_для_расчёта_вознаграждения_28082026-3_1787574038.xlsx",
+  "rows": 9308,
+  "uniqueCombinations": 9308,
+  "uniqueTypes": 8980,
+  "mainCategories": 30,
+  "categories": 629,
+  "catalogBuiltAt": "2026-08-27",
+  "complianceStatus": "pending",
+  "checkedProducts": 0,
+  "note": "Регуляторные выводы не заполняются автоматически только по названию товара."
+}
