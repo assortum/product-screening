@@ -1,0 +1,24 @@
+{
+  "version": 2,
+  "definitions": {
+    "material": {"label":"Основной материал","type":"single","options":["Металл","Пластик","Текстиль","Натуральная кожа","Искусственная кожа","Стекло","Керамика","Дерево","Бумага/картон","Резина/эластомер","Комбинированный","Иное"]},
+    "ageGroup": {"label":"Возрастное назначение","type":"single","options":["Взрослые","Дети","Универсальное/не указано"]},
+    "electric": {"label":"Есть электрические/электронные компоненты","type":"boolean"},
+    "mainsPowered": {"label":"Подключается к электросети","type":"boolean","showWhen":{"electric":"yes"}},
+    "batteryPowered": {"label":"Работает от аккумулятора/батареек","type":"boolean","showWhen":{"electric":"yes"}},
+    "ratedVoltage": {"label":"Номинальное напряжение","type":"single","options":["до 50 В AC / 75 В DC включительно","выше 50 В AC / 75 В DC"],"showWhen":{"electric":"yes"}},
+    "foodContact": {"label":"Контактирует с пищевой продукцией","type":"boolean"},
+    "skinContact": {"label":"Контактирует с кожей при обычном использовании","type":"boolean"},
+    "wearable": {"label":"Предназначено для ношения на теле","type":"boolean"},
+    "textileProduct": {"label":"Одежда или текстильное изделие","type":"boolean"},
+    "footwear": {"label":"Является обувью","type":"boolean"},
+    "cosmetic": {"label":"Парфюмерно-косметическая продукция","type":"boolean"},
+    "householdChemical": {"label":"Бытовая химия / химическая смесь","type":"boolean"},
+    "medicalPurpose": {"label":"Заявлено медицинское назначение","type":"boolean"},
+    "toyPurpose": {"label":"Предназначено для игры ребёнка","type":"boolean"},
+    "furniture": {"label":"Является мебельной продукцией","type":"boolean"},
+    "automotiveComponent": {"label":"Функциональный компонент транспортного средства","type":"boolean"},
+    "animalOnly": {"label":"Предназначено исключительно для животных","type":"boolean"},
+    "preciousMaterials": {"label":"Есть драгоценные металлы или драгоценные камни","type":"boolean"}
+  }
+}
