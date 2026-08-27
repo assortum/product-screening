@@ -23,6 +23,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Validate regulatory registry
+        run: python3 scripts/validate_regulatory_data.py
+      - name: Validate browser JavaScript
+        run: |
+          node --check assets/app-core.js
+          node --check assets/app-detail.js
+          node --check assets/terminology.js
+          node --check assets/app-ui.js
       - name: Build clothing compliance data
         run: |
           mkdir -p /tmp/screening-inputs
