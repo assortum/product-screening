@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "shardSize": 500,
+  "detailPathTemplate": "data/compliance/details/{start}-{end}.json",
+  "rulePathTemplate": "data/rules/products/{start}-{end}.json",
+  "summaryFile": "data/compliance-summary.json",
+  "sourcesFile": "data/sources.json",
+  "catalogDictionaryFile": "data/catalog-dict.json",
+  "catalogFiles": [
+    "data/catalog/part-01.json",
+    "data/catalog/part-02.json",
+    "data/catalog/part-03.json",
+    "data/catalog/part-04.json",
+    "data/catalog/part-05.json",
+    "data/catalog/part-06.json",
+    "data/catalog/part-07.json",
+    "data/catalog/part-08.json",
+    "data/catalog/part-09.json",
+    "data/catalog/part-10.json",
+    "data/catalog/part-11.json",
+    "data/catalog/part-12.json",
+    "data/catalog/part-13.json",
+    "data/catalog/part-14.json",
+    "data/catalog/part-15.json",
+    "data/catalog/part-16.json"
+  ]
+}
